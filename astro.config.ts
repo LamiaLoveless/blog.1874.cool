@@ -15,7 +15,7 @@ import { expressiveCodeOptions } from "./src/site.config";
 // https://astro.build/config
 export default defineConfig({
 	// ! Please remember to replace the following site property with your own domain
-	site: "https://blog.1874.cool/",
+	site: "https://www.loli.cam/",
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime, remarkMath],
 		rehypePlugins: [
@@ -44,7 +44,7 @@ export default defineConfig({
 		mdx(),
 	],
 	image: {
-		domains: ["image.1874.cool"],
+		domains: ["pic.loli.cam"],
 	},
 	// https://docs.astro.build/en/guides/prefetch/
 	prefetch: true,
