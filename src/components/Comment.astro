@@ -1,47 +1,40 @@
 ---
-const pathname = decodeURIComponent(Astro.url.pathname || ""); //解码
-const postName = pathname?.split("/").pop();
+const pathname = decodeURIComponent(Astro.url.pathname || ""); // 解码 URL
+const postName = pathname?.split("/").pop(); // 获取文章名称
 ---
-<meta property={`og:${postName}`} />
+
+<!-- Open Graph 标签 -->
+<meta property="og:title" content={postName || "默认标题"} />
+
+<!-- Twikoo comment -->
+<div id="tcomment"></div>
 <script>
-	function sendMessage(message: Object) {
-		const iframe = document.querySelector("iframe.giscus-frame") as HTMLIFrameElement;
-    if (!iframe || !iframe.contentWindow) return;
-		iframe.contentWindow.postMessage({ giscus: message }, "https://giscus.app");
-	}
+    // 引入 twikoo
+    import twikoo from "twikoo";
+    // 引入 twikoo 的样式
+    import "twikoo/dist/twikoo.css";
+    function initTwikoo() {
+        // 初始化twikoo
+        twikoo({
+            envId: "https://twikoo-cloudflare.lamia.workers.dev",
+            el: "#tcomment",
+            lang: "zh-CN",
+        }).then(() => {
+            // 这里主要用来调试
+            console.log("comment loading success");
+        });
+    }
 
-	function getCurrentTheme() {
-    return document.firstElementChild && document.firstElementChild.getAttribute("data-theme");
-	}
+    // 这里两个事件绑定很重要，有时候就是路由的时候无法加载twikoo
+    document.addEventListener("astro:after-swap", () => initTwikoo(), {
+        once: false,
+    });
+    document.addEventListener("astro:page-load", () => initTwikoo(), {
+        once: false,
+    });
 
-	function createGusicScript() {
-		const container = document.querySelector("#main");
-		const theme = getCurrentTheme() == "light" ? "light" : "dark_dimmed";
-		let script = document.createElement("script");
-		script.src = "https://giscus.app/client.js";
-		script.setAttribute("data-repo", "LetTTGACO/blog.1874.cool");
-		script.setAttribute("data-repo-id", "R_kgDOLNI02w");
-		script.setAttribute("data-category", "General");
-		script.setAttribute("data-category-id", "DIC_kwDOLNI0284Cc6X-");
-		script.setAttribute("data-mapping", "og:title");
-		script.setAttribute("data-strict", "0");
-		script.setAttribute("data-reactions-enabled", "0");
-		script.setAttribute("data-emit-metadata", "0");
-		script.setAttribute("data-input-position", "bottom");
-		script.setAttribute("data-theme", theme);
-		script.setAttribute("data-lang", "zh-CN");
-		script.setAttribute("data-loading", "lazy");
-		script.setAttribute("crossorigin", "anonymous");
-		script.async = true;
-		container && container.appendChild(script);
-	}
-
-	createGusicScript();
-	document.querySelector("#theme-btn")?.addEventListener("click", () => {
-		const theme = getCurrentTheme();
-		sendMessage({
-			setConfig: { theme: theme == "light" ? "light" : "dark_dimmed" },
-		});
-	});
+    initTwikoo();
 </script>
-<h2 class="mb-10 before:hidden"/>
+
+<!-- 标题 -->
+<h2 class="mb-10 before:hidden"></h2>

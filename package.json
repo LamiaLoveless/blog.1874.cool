@@ -21,6 +21,7 @@
 		"@astrojs/sitemap": "3.0.5",
 		"@astrojs/tailwind": "5.1.0",
 		"@elog/cli": "^0.14.7",
+		"@elog/plugin-img-r2": "^0.1.1",
 		"astro": "^4.16.1",
 		"astro-expressive-code": "^0.31.0",
 		"astro-icon": "^1.1.0",
@@ -31,7 +32,8 @@
 		"remark-math": "^6.0.0",
 		"satori": "0.10.11",
 		"satori-html": "^0.3.2",
-		"sharp": "^0.33.2"
+		"sharp": "^0.33.2",
+		"twikoo": "^1.6.41"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.4.1",

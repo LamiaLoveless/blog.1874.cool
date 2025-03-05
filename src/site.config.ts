@@ -3,12 +3,12 @@ import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
 
 export const siteConfig: SiteConfig = {
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-	author: "1874",
+	author: "Lamia",
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
-	title: "1874's BLOG",
+	title: "碧海明珠",
 	// Meta property used as the default description meta property
 	description:
-		"一个对已有笔记的阶段性总结的独立博客。在这里你可以了解我是什么样的人、我在想什么、我在做什么。原创博客内容多为技术分享、踩坑记录，偶尔也会写点正经文字，以写出有用且有趣的文字为己任，希望诸君能够喜欢。",
+		"",
 	// HTML lang property, found in src/layouts/Base.astro L:18
 	lang: "zh-Hans",
 	// Meta property, found in src/components/BaseHead.astro L:42
@@ -33,22 +33,7 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 		title: "首页",
 		path: "/",
 	},
-	{
-		title: "月刊",
-		path: "/tags/月刊",
-	},
-	{
-		title: "年刊",
-		path: "/tags/年刊",
-	},
-	{
-		title: "赛博空间",
-		path: "/tags/赛博空间",
-	},
-	{
-		title: "代码之外",
-		path: "/tags/代码之外",
-	},
+
 	{
 		title: "关于",
 		path: "/about",
