@@ -54,7 +54,7 @@ export default {
 				},
 				DEFAULT: {
 					css: {
-						maxWidth: '70ch', // 修改为更大的值
+					
 						a: {
 							"@apply cactus-link no-underline": "",
 						},
