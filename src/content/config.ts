@@ -25,7 +25,7 @@ const post = defineCollection({
 			draft: z.boolean().default(false),
 			hidden: z.boolean().default(false),
 			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-			comment: z.boolean().default(true), // 是否加载评论
+			comment: z.boolean().default(false),
 			// ogImage: z.string().optional(),
 		}),
 });

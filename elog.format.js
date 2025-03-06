@@ -9,21 +9,32 @@ const { matterMarkdownAdapter } = require("@elog/cli");
  * @return {Promise<DocDetail>} 返回处理后的文档对象
  */
 const format = async (doc, imageClient) => {
-	doc.properties.draft = doc.properties.status.name !== "Done";
-	doc.properties.hidden = !!doc.properties.hidden;
-	delete doc.properties.status;
-	const cover = doc.properties.cover;
-	if (cover) {
-		// 将 cover 字段中的 notion 图片下载到本地
-		// 只有启用图床平台image.enable=true时，imageClient才能用，否则请自行实现图片上传
-		// cover链接替换为本地图片
-		doc.properties.cover = await imageClient.uploadImageFromUrl(cover, doc);
-	}
+  // 处理 draft 字段
+  doc.properties.draft = doc.properties.status.name !== "Done";
 
-	doc.body = matterMarkdownAdapter(doc);
-	return doc;
+  // 处理 hidden 字段
+  doc.properties.hidden = !!doc.properties.hidden;
+
+  // 处理 comment 字段
+  doc.properties.comment = !!doc.properties.comment; // 确保 comment 是布尔值
+
+  // 删除 status 字段
+  delete doc.properties.status;
+
+  // 处理 cover 字段
+  const cover = doc.properties.cover;
+  if (cover) {
+    // 将 cover 字段中的 notion 图片下载到本地
+    // 只有启用图床平台 image.enable=true 时，imageClient 才能用，否则请自行实现图片上传
+    // cover 链接替换为本地图片
+    doc.properties.cover = await imageClient.uploadImageFromUrl(cover, doc);
+  }
+
+  // 使用 matterMarkdownAdapter 处理文档内容
+  doc.body = matterMarkdownAdapter(doc);
+  return doc;
 };
 
 module.exports = {
-	format,
+  format,
 };
