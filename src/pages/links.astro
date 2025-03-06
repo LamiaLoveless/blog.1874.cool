@@ -1,15 +1,8 @@
 ---
 import PostLayout from "@/layouts/BlogPost";
 import { getConfigPage } from "../utils/config";
-import Comment from "@/components/Comment";
 
-// 获取 links 页面数据
 const links = await getConfigPage('links');
-
-// 确保 links 对象中包含 comment 字段
-const { comment = false } = links; // 从 links 对象中提取 comment 字段，默认值为 false
-
-// 渲染内容
 // @ts-ignore
 const { Content } = await links.render();
 ---
@@ -17,6 +10,4 @@ const { Content } = await links.render();
 <!--@ts-ignore-->
 <PostLayout post={links}>
   <Content/>
-  <div class="mt-32"></div>
-  {comment && <Comment />}
 </PostLayout>
