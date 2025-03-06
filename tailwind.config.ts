@@ -54,7 +54,6 @@ export default {
 				},
 				DEFAULT: {
 					css: {
-					
 						a: {
 							"@apply cactus-link no-underline": "",
 						},
