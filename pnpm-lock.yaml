@@ -23,12 +23,9 @@ dependencies:
   '@elog/cli':
     specifier: ^0.14.7
     version: 0.14.7
-  '@elog/plugin-img-b2':
-    specifier: ^0.1.1
-    version: 0.1.1
   '@elog/plugin-img-r2':
-    specifier: ^0.1.1
-    version: 0.1.1
+    specifier: 0.1.2-beta.0
+    version: 0.1.2-beta.0
   astro:
     specifier: ^4.16.1
     version: 4.16.1(typescript@5.3.3)
@@ -1148,6 +1145,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
+    dev: true
 
   /@babel/template@7.26.9:
     resolution: {integrity: sha512-qyRplbeIpNZhmzOysF/wFMuP9sctmh2cFzRAZOn1YapxBsE1i9bJIY586R/WBLfLcmcBlM8ROBiQURnnNy+zfA==}
@@ -1277,18 +1275,11 @@ packages:
       - supports-color
     dev: false
 
-  /@elog/plugin-img-b2@0.1.1:
-    resolution: {integrity: sha512-1IlmibAjmj4mI82EPVU/1oiBlk7VQ36kPxh84bhDSqQzqk3WlmOwh7SZzeRRyW6J+3v5V59fuGfhrppvZQxcFA==}
-    dependencies:
-      backblaze-b2: 1.7.0
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
-  /@elog/plugin-img-r2@0.1.1:
-    resolution: {integrity: sha512-Vj7Biqa0TwpsZnprfm7ItNhtIGzP/clUMxRsGpoapfHuXQoMBAQ8S6ot8Lr3P08WCBm4dYexSX0YHccWfflWKg==}
+  /@elog/plugin-img-r2@0.1.2-beta.0:
+    resolution: {integrity: sha512-4NL3nHICe37lo9paDIJh22AaCXfvlKTVbiUAudwG+mffg7ck06r/kzkSsUmQlZFAFqT+LQzCHhyTDKsrJ0jJtg==}
     dependencies:
       '@aws-sdk/client-s3': 3.445.0
+      mime-types: 2.1.35
     transitivePeerDependencies:
       - aws-crt
     dev: false
@@ -4150,21 +4141,6 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axios-retry@3.9.1:
-    resolution: {integrity: sha512-8PJDLJv7qTTMMwdnbMvrLYuvB47M81wRtxQmEdV5w4rgbTXTt+vtPkXwajOfOdSyv/wZICJOC+/UhXH4aQ/R+w==}
-    dependencies:
-      '@babel/runtime': 7.26.9
-      is-retry-allowed: 2.2.0
-    dev: false
-
-  /axios@0.21.4:
-    resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
-    dependencies:
-      follow-redirects: 1.15.9
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
   /axios@0.26.1:
     resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
     dependencies:
@@ -4181,17 +4157,6 @@ packages:
   /axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
     engines: {node: '>= 0.4'}
-    dev: false
-
-  /backblaze-b2@1.7.0:
-    resolution: {integrity: sha512-8cVsKkXspuM1UeLI8WWSWw2JHfB7/IvqTtzvwhHqqhNyqcYl8iZ2lFpeuXGKcFA1TiSRlgALXWFJ9eKG6+3ZPg==}
-    engines: {node: '>=10.0'}
-    dependencies:
-      axios: 0.21.4
-      axios-retry: 3.9.1
-      lodash: 4.17.21
-    transitivePeerDependencies:
-      - debug
     dev: false
 
   /bail@1.0.5:
@@ -7094,11 +7059,6 @@ packages:
       hasown: 2.0.2
     dev: true
 
-  /is-retry-allowed@2.2.0:
-    resolution: {integrity: sha512-XVm7LOeLpTW4jV19QSH38vkswxoLud8sQ57YwJVTPWdiaI9I8keEhGFpBlslyVsgdQy4Opg8QOLb8YRgsyZiQg==}
-    engines: {node: '>=10'}
-    dev: false
-
   /is-set@2.0.3:
     resolution: {integrity: sha512-iPAjerrse27/ygGLxw+EBR9agv9Y6uLeYVJMu+QNCoouJ1/1ri0mGrcWpfCqFZuzzx3WjtwxG098X+n4OuRkPg==}
     engines: {node: '>= 0.4'}
@@ -9527,6 +9487,7 @@ packages:
 
   /regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
+    dev: true
 
   /regex-recursion@5.1.1:
     resolution: {integrity: sha512-ae7SBCbzVNrIjgSbh7wMznPcQel1DNlDtzensnFxpiNpXt1U2ju/bHugH422r+4LAVS1FpW1YCwilmnNsjum9w==}
