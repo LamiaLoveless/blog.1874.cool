@@ -58,8 +58,8 @@ export const buildLinks: Array<{ title: string; path: string }> = [
 		path: "https://astro.build",
 	},
 	{
-		title: "Vercel",
-		path: "https://vercel.com",
+		title: "CF Pages",
+		path: "https://pages.cloudflare.com/",
 	},
 ];
 
