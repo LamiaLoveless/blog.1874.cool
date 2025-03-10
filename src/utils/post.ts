@@ -13,8 +13,8 @@ export async function getAllPosts() {
 
 export function sortMDByDate(posts: Array<CollectionEntry<"post">>) {
 	return posts.sort((a, b) => {
-		const aDate = new Date(a.data.date ?? a.data.updated).valueOf();
-		const bDate = new Date(b.data.date ?? b.data.updated).valueOf();
+		const aDate = new Date(a.data.date ?? a.data.updatedDate).valueOf();
+		const bDate = new Date(b.data.date ?? b.data.updatedDate).valueOf();
 		return bDate - aDate;
 	}) as Array<CollectionEntry<"post">>;
 }

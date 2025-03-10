@@ -43,10 +43,10 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 		{remarkPluginFrontmatter.minutesRead}
 	</p>
 	{
-		data.updated && (
+		data.updatedDate && (
 			<span class="rounded-lg bg-quote/10 p-1 text-quote">
 				最后更新:
-				<FormattedDate class="ms-1" date={data.updated} dateTimeOptions={dateTimeOptions} />
+				<FormattedDate class="ms-1" date={data.updatedDate} dateTimeOptions={dateTimeOptions} />
 			</span>
 		)
 	}

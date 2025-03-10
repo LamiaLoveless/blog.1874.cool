@@ -21,7 +21,11 @@ const format = async (doc, imageClient) => {
   // 删除 status 字段
   delete doc.properties.status;
 
-  // 处理 cover 字段
+  // 删除 updated 字段
+
+  delete doc.properties.updated;
+    
+  // 处理 cover 字段  
   const cover = doc.properties.cover;
   if (cover) {
     // 将 cover 字段中的 notion 图片下载到本地

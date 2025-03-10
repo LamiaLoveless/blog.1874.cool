@@ -13,10 +13,10 @@ interface Props {
 
 const { post } = Astro.props;
 const {
-	data: { title, description = '', date, updated },
+	data: { title, description = '', date, updatedDate },
 } = post;
 // const socialImage = ogImage ?? `/og-image/${slug}.png`;
-const articleDate = updated?.toISOString() ?? date.toISOString();
+const articleDate = updatedDate?.toISOString() ?? date.toISOString();
 const { headings } = await post.render();
 ---
 

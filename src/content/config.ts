@@ -17,7 +17,7 @@ const post = defineCollection({
 				.string()
 				.or(z.date())
 				.transform((val) => new Date(val)),
-			updated: z
+			updatedDate: z
 				.string()
 				.optional()
 				.transform((str) => (str ? new Date(str) : undefined)),
