@@ -31,7 +31,7 @@
   }
 
   html body {
-    @apply mx-auto flex min-h-screen  max-w-3xl flex-col bg-bgColor px-8 pt-16 font-sans text-base font-normal text-textColor antialiased;
+    @apply mx-auto flex min-h-screen  max-w-7xl flex-col bg-bgColor px-8 pt-16 font-sans text-base font-normal text-textColor antialiased;
   }
 
   .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before {
